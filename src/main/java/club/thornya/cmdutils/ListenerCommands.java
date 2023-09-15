@@ -20,7 +20,7 @@ public class ListenerCommands implements Listener {
 
             if (commands.contains(command)) {
                 Config.get().getStringList("block-commands." + command + ".messages").forEach(s -> e.getPlayer().sendMessage(s));
-                DiscordHook.sendWebhook("", e.getPlayer().getPlayer());
+                DiscordHook.sendWebhook(command, e.getPlayer());
                 e.setCancelled(true);
             }
         }

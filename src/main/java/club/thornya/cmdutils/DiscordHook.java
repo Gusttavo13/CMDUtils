@@ -21,16 +21,7 @@ public class DiscordHook {
             con.setRequestProperty("Content-Type", "application/json; utf-8");
             con.setRequestProperty("Accept", "application/json");
             con.setDoOutput(true);
-            String jsonInputString = "{\n" +
-                    "  \"content\": null,\n" +
-                    "  \"embeds\": [\n" +
-                    "    {\n" +
-                    "      \"description\": \"O jogador **$nickname$** digitou o comando **$command$**```c\\nIP: $IP$\\n```\",\n" +
-                    "      \"color\": 16711680\n" +
-                    "    }\n" +
-                    "  ],\n" +
-                    "  \"attachments\": []\n" +
-                    "}";
+            String jsonInputString = "{\"content\":null,\"embeds\":[{\"description\":\"O jogador **$nickname$** digitou o comando **$command$**```c\\nIP: $IP$\\n```\",\"color\":16711680}],\"attachments\":[]}";
             jsonInputString = jsonInputString.replace("$nickname$", p.getName()).replace("$command$", content).replace("$IP$", p.getAddress().getAddress().getHostAddress());
             try(OutputStream os = con.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
