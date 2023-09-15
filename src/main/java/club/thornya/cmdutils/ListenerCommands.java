@@ -7,6 +7,14 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import java.util.ArrayList;
 import java.util.Objects;
 
+//
+// * Project: CMDUtils
+// * Author: Gusttavo13
+// * Date: 15/09/2023
+// * Time: 00:00
+// * File: ListenerCommands.java
+//
+
 public class ListenerCommands implements Listener {
     private final ArrayList<String> commands = new ArrayList<>();
 

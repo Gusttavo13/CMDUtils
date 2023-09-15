@@ -10,6 +10,14 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
+//
+// * Project: CMDUtils
+// * Author: Gusttavo13
+// * Date: 15/09/2023
+// * Time: 00:00
+// * File: DiscordHook.java
+//
+
 public class DiscordHook {
 
     public static void sendWebhook(String content, Player p) {
