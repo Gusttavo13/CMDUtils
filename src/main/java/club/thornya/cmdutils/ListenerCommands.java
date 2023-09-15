@@ -5,12 +5,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ListenerCommands implements Listener {
     private final ArrayList<String> commands = new ArrayList<>();
 
     public ListenerCommands() {
-        this.commands.addAll(Config.get().getConfigurationSection("block-commands").getKeys(false));
+        this.commands.addAll(Objects.requireNonNull(CMDUtils.getInstance().config.getConfigurationSection("block-commands")).getKeys(false));
     }
 
     @EventHandler
@@ -19,8 +20,8 @@ public class ListenerCommands implements Listener {
             String command = e.getMessage().split(" ")[0].replace("/", "");
 
             if (commands.contains(command)) {
-                Config.get().getStringList("block-commands." + command + ".messages").forEach(s -> e.getPlayer().sendMessage(s));
-                DiscordHook.sendWebhook(command, e.getPlayer());
+                CMDUtils.getInstance().config.getStringList("block-commands." + command + ".messages").forEach(s -> e.getPlayer().sendMessage(s.replace("&", "§")));
+                if(CMDUtils.getInstance().config.getBoolean("discord.enable")) DiscordHook.sendWebhook(command, e.getPlayer());
                 e.setCancelled(true);
             }
         }
