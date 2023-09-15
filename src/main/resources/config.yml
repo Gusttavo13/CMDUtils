@@ -1,0 +1,19 @@
+discord:
+  enable: false
+  url: "https://discord.com/api/webhooks/.../..."
+block-commands:
+  ver:
+    messages:
+      - " "
+      - "&cEsse comando não existe!"
+      - " "
+  plugins:
+    messages:
+      - " "
+      - "&cEsse comando não existe!"
+      - " "
+  bukkit:plugins:
+    messages:
+      - " "
+      - "&cEsse comando não existe!"
+      - " "
