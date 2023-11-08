@@ -4,8 +4,8 @@
 ##########################################
 
 discord:
-  enable: false
-  url: "https://discord.com/api/webhooks/.../..."
+  enable: false # Ativar ou desativar o webhook
+  url: "https://discord.com/api/webhooks/.../..." # link do webhook
 block-commands:
   ver:
     messages:
